@@ -3,39 +3,144 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Descargá Compás Studio Desktop para macOS y Windows.">
+  <meta name="description" content="Descargá Compás Studio Desktop para macOS y Windows. Tocá con tus tablaturas y practicá con pistas separadas.">
   <title>Compás Studio Desktop · Descargas</title>
+  <link rel="icon" href="./assets/compas.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./styles.css">
   <script src="./downloads.js" defer></script>
 </head>
 <body>
-  <main>
-    <header class="hero">
-      <div>
-        <p class="brand"><span aria-hidden="true">♪</span> Compás Studio</p>
-        <h1>Compás Studio<br>Desktop</h1>
-        <p class="summary">Abrí tus tablaturas, practicá con pistas separadas y editá tus arreglos en tu computadora.</p>
-        <a class="action" href="#instaladores">Ver instaladores</a>
-      </div>
-      <div class="score" aria-hidden="true">
-        <span class="score-label">TAB</span>
-        <div><span>0</span><span>3</span><span></span><span>5</span></div>
-        <div><span>1</span><span></span><span>3</span><span>5</span></div>
-        <div><span>2</span><span></span><span>0</span><span>5</span></div>
-        <div><span>2</span><span>0</span><span></span><span>7</span></div>
-        <div><span>0</span><span></span><span>2</span><span>7</span></div>
-        <div><span></span><span>3</span><span></span><span>5</span></div>
-      </div>
-    </header>
+  <header class="site-header">
+    <div class="shell masthead">
+      <a class="brand" href="./" aria-label="Compás Studio Desktop, inicio">
+        <img src="./assets/compas.svg" alt="" width="36" height="36">
+        Compás Studio
+      </a>
+      <nav aria-label="Navegación principal">
+        <a href="#instaladores" aria-current="page">Descargas</a>
+        <a href="https://github.com/oneluiz/compas-studio-releases/releases">Historial</a>
+      </nav>
+    </div>
+  </header>
 
-    <section id="instaladores" aria-labelledby="descargas">
+  <main class="shell">
+    <section class="hero" aria-labelledby="product-title">
+      <div class="hero-copy">
+        <h1 id="product-title">Compás Studio <span>Desktop</span></h1>
+        <p class="summary">Abrí y editá tus tablaturas, seguí la música compás a compás y aislá el instrumento que querés practicar.</p>
+        <a class="button button-primary" href="#instaladores">
+          <svg class="icon" aria-hidden="true"><use href="./assets/icons.svg#hi-arrow-down-tray"/></svg>
+          Ver instaladores
+        </a>
+      </div>
+
+      <figure class="preview" role="img" aria-label="Vista previa de Compás Studio con una tablatura de guitarra y el mezclador de instrumentos.">
+        <div class="preview-window" aria-hidden="true">
+          <div class="preview-bar">
+            <span class="window-dots"><i></i><i></i><i></i></span>
+            <span>Compás Studio</span>
+            <svg class="icon"><use href="./assets/icons.svg#hi-adjustments-horizontal"/></svg>
+          </div>
+          <div class="preview-score">
+            <div class="score-heading">
+              <span>Arpegio en mi menor</span>
+              <span class="track-pill">
+                <svg class="icon"><use href="./assets/icons.svg#hi-musical-note"/></svg>
+                Guitarra
+              </span>
+            </div>
+            <div class="tab-tempo">♩ = 96</div>
+            <div class="tablature">
+              <div class="tuning"><span>e</span><span>B</span><span>G</span><span>D</span><span>A</span><span>E</span></div>
+              <div class="measure">
+                <span class="measure-number">1</span>
+                <span class="note" style="--string:6; --beat:1">0</span>
+                <span class="note" style="--string:5; --beat:2">2</span>
+                <span class="note" style="--string:4; --beat:3">2</span>
+                <span class="note" style="--string:3; --beat:4">0</span>
+                <span class="note" style="--string:2; --beat:5">0</span>
+                <span class="note" style="--string:3; --beat:6">0</span>
+                <span class="note" style="--string:4; --beat:7">2</span>
+                <span class="note" style="--string:5; --beat:8">2</span>
+              </div>
+              <div class="measure second-measure">
+                <span class="measure-number">2</span>
+                <span class="cursor"></span>
+                <span class="note" style="--string:5; --beat:1">3</span>
+                <span class="note" style="--string:4; --beat:2">2</span>
+                <span class="note" style="--string:3; --beat:3">0</span>
+                <span class="note active-note" style="--string:2; --beat:4">1</span>
+                <span class="note" style="--string:1; --beat:5">0</span>
+                <span class="note" style="--string:2; --beat:6">1</span>
+                <span class="note" style="--string:3; --beat:7">0</span>
+                <span class="note" style="--string:4; --beat:8">2</span>
+              </div>
+            </div>
+          </div>
+          <div class="preview-transport">
+            <span class="preview-play"><svg class="icon"><use href="./assets/icons.svg#hi-play"/></svg></span>
+            <span>Compás 2</span>
+            <span class="progress"><i></i></span>
+          </div>
+        </div>
+
+        <div class="preview-mixer" aria-hidden="true">
+          <div class="mixer-heading">
+            <strong>Mezclador</strong>
+            <svg class="icon"><use href="./assets/icons.svg#hi-adjustments-horizontal"/></svg>
+          </div>
+          <div class="mixer-track mixer-track-active">
+            <span>Guitarra</span>
+            <span class="level" style="--level:85%"><i></i></span>
+            <svg class="icon"><use href="./assets/icons.svg#hi-speaker-wave"/></svg>
+          </div>
+          <div class="mixer-track">
+            <span>Bajo</span>
+            <span class="level" style="--level:62%"><i></i></span>
+            <svg class="icon"><use href="./assets/icons.svg#hi-speaker-wave"/></svg>
+          </div>
+          <div class="mixer-track">
+            <span>Batería</span>
+            <span class="level" style="--level:73%"><i></i></span>
+            <svg class="icon"><use href="./assets/icons.svg#hi-speaker-wave"/></svg>
+          </div>
+        </div>
+      </figure>
+    </section>
+
+    <section id="instaladores" class="downloads" aria-labelledby="download-title">
       <header class="downloads-header">
-        <h2 id="descargas">Instaladores</h2>
+        <h2 id="download-title">Instaladores</h2>
         <p id="release-status" role="status"></p>
       </header>
       <ul id="release-assets" class="platforms"></ul>
-      <p class="releases-link"><a href="https://github.com/oneluiz/compas-studio-releases/releases">Ver todas las versiones en GitHub</a></p>
-      <p class="install-note">En macOS, abrí el DMG y mové Compás Studio a Aplicaciones. En Windows, abrí el instalador. El procesamiento de audio requiere configurar FFmpeg, FFprobe y Demucs.</p>
+      <template id="platform-template">
+        <li class="platform">
+          <header class="platform-header">
+            <span class="platform-icon">
+              <svg class="icon" aria-hidden="true"><use href="./assets/icons.svg#hi-computer-desktop"/></svg>
+            </span>
+            <div>
+              <h3></h3>
+              <p class="platform-detail"></p>
+            </div>
+          </header>
+          <a class="button button-secondary">
+            <svg class="icon" aria-hidden="true"><use href="./assets/icons.svg#hi-arrow-down-tray"/></svg>
+            <span class="download-label"></span>
+          </a>
+        </li>
+      </template>
+      <div class="install-help">
+        <div>
+          <h3>Instalación</h3>
+          <p>En Mac, abrí el DMG y mové Compás Studio a Aplicaciones. En Windows, ejecutá el instalador. Para separar audio, configurá FFmpeg, FFprobe y Demucs.</p>
+        </div>
+        <a class="history-link" href="https://github.com/oneluiz/compas-studio-releases/releases">
+          Ver todas las versiones
+          <svg class="icon" aria-hidden="true"><use href="./assets/icons.svg#hi-arrow-right"/></svg>
+        </a>
+      </div>
     </section>
   </main>
 </body>
