@@ -1,0 +1,52 @@
+name: Publicar instaladores
+on:
+  push:
+    branches: ['incoming/**']
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publicar-instaladores
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verificar y publicar instaladores
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TRANSFER_BRANCH: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          read -r version < incoming/version
+          [[ "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]
+          [[ "$TRANSFER_BRANCH" == incoming/v"$version"-* ]]
+          package_dir=$(mktemp -d)
+          for suffix in macos-arm64.dmg macos-x64.dmg windows-x64.exe; do
+            file="Compas-Studio-${version}-${suffix}"
+            cat "incoming/$file".part.* > "$package_dir/$file"
+            test -s "$package_dir/$file"
+          done
+          (cd "$package_dir" && sha256sum Compas-Studio-*) > "$package_dir/SHA256SUMS"
+          cmp "$package_dir/SHA256SUMS" incoming/SHA256SUMS
+          repo="$GITHUB_REPOSITORY"
+          tag="v$version"
+          if ! gh release view "$tag" --repo "$repo" >/dev/null 2>&1; then
+            gh release create "$tag" --repo "$repo" --target main --draft \
+              --title "Compás Studio Desktop $version" --notes-file incoming/notes.md
+          fi
+          if [[ "$(gh release view "$tag" --repo "$repo" --json isDraft --jq .isDraft)" == true ]]; then
+            gh release upload "$tag" --repo "$repo" --clobber "$package_dir"/Compas-Studio-*
+          fi
+          for asset in "$package_dir"/Compas-Studio-*; do
+            name=$(basename "$asset")
+            local_hash=$(sha256sum "$asset" | cut -d' ' -f1)
+            remote_hash=$(gh release view "$tag" --repo "$repo" --json assets --jq ".assets[] | select(.name == \"$name\" and .state == \"uploaded\") | .digest")
+            [[ "$remote_hash" == "sha256:$local_hash" ]]
+          done
+          if [[ "$(gh release view "$tag" --repo "$repo" --json isDraft --jq .isDraft)" == true ]]; then
+            gh release edit "$tag" --repo "$repo" --draft=false
+          fi
+          git push origin --delete "$TRANSFER_BRANCH"

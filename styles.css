@@ -1,0 +1,44 @@
+:root {
+  color-scheme: light;
+  --paper: #f6f8fc;
+  --white: #fff;
+  --ink: #15223b;
+  --muted: #4b5b72;
+  --blue: #204fd2;
+  --line: #c8d4ea;
+  font-family: Inter, system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { max-width: 72rem; margin: 0 auto; padding: clamp(1.25rem, 5vw, 4rem); }
+.hero { display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: clamp(1.75rem, 5vw, 4rem); padding-block: 1rem clamp(2.5rem, 7vw, 6rem); }
+.brand { display: flex; align-items: center; gap: .65rem; font-weight: 700; }
+.brand span { display: grid; place-items: center; width: 1.8rem; aspect-ratio: 1; background: var(--blue); color: white; border-radius: .35rem; }
+h1 { font-size: clamp(2.65rem, 6vw, 5rem); line-height: .99; letter-spacing: -.055em; margin: 1rem 0; max-width: 9ch; }
+.summary { font-size: 1.1rem; line-height: 1.65; color: var(--muted); max-width: 34ch; margin: 1.25rem 0; }
+a { color: var(--blue); text-underline-offset: .2em; }
+a:focus-visible { outline: .16rem solid var(--blue); outline-offset: .25rem; }
+.action { display: inline-block; padding: .85rem 1.15rem; background: var(--blue); color: white; font-weight: 650; text-decoration: none; border-radius: .45rem; }
+.action:hover { background: #1b43b6; }
+.score { background: var(--white); border: 1px solid var(--line); border-left: .3rem solid var(--blue); border-radius: .55rem; padding: clamp(1rem, 4vw, 2.5rem); font-family: ui-monospace, monospace; color: var(--blue); }
+.score-label { display: block; font-size: .9rem; font-weight: 700; margin-bottom: .85rem; }
+.score div { display: grid; grid-template-columns: repeat(4, 1fr); gap: .25rem; align-items: center; background: linear-gradient(transparent 48%, var(--line) 48%, var(--line) 52%, transparent 52%); height: 1.55rem; }
+.score div span { min-width: 1rem; justify-self: center; text-align: center; }
+.score div span:not(:empty) { background: var(--white); }
+#instaladores { border-top: 1px solid var(--line); }
+.downloads-header { display: flex; justify-content: space-between; align-items: baseline; gap: .6rem 2rem; flex-wrap: wrap; }
+.downloads-header h2 { font-size: clamp(1.65rem, 4vw, 2.5rem); letter-spacing: -.035em; margin: 1.5rem 0 1rem; }
+#release-status, .install-note, .platforms p { color: var(--muted); }
+.platforms { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); gap: 1rem; }
+.platforms li { border: 1px solid var(--line); border-radius: .5rem; background: var(--white); padding: 1.2rem; }
+.platforms h3 { margin: 0; }
+.platforms p { margin: .5rem 0 .9rem; }
+.platforms a { font-weight: 650; }
+.install-note { line-height: 1.6; max-width: 68ch; }
+@media (max-width: 42rem) {
+  .hero { grid-template-columns: 1fr; }
+  .score { max-width: 32rem; }
+}

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Descargá Compás Studio Desktop para macOS y Windows.">
+  <title>Compás Studio Desktop · Descargas</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./downloads.js" defer></script>
+</head>
+<body>
+  <main>
+    <header class="hero">
+      <div>
+        <p class="brand"><span aria-hidden="true">♪</span> Compás Studio</p>
+        <h1>Compás Studio<br>Desktop</h1>
+        <p class="summary">Abrí tus tablaturas, practicá con pistas separadas y editá tus arreglos en tu computadora.</p>
+        <a class="action" href="#instaladores">Ver instaladores</a>
+      </div>
+      <div class="score" aria-hidden="true">
+        <span class="score-label">TAB</span>
+        <div><span>0</span><span>3</span><span></span><span>5</span></div>
+        <div><span>1</span><span></span><span>3</span><span>5</span></div>
+        <div><span>2</span><span></span><span>0</span><span>5</span></div>
+        <div><span>2</span><span>0</span><span></span><span>7</span></div>
+        <div><span>0</span><span></span><span>2</span><span>7</span></div>
+        <div><span></span><span>3</span><span></span><span>5</span></div>
+      </div>
+    </header>
+
+    <section id="instaladores" aria-labelledby="descargas">
+      <header class="downloads-header">
+        <h2 id="descargas">Instaladores</h2>
+        <p id="release-status" role="status"></p>
+      </header>
+      <ul id="release-assets" class="platforms"></ul>
+      <p class="releases-link"><a href="https://github.com/oneluiz/compas-studio-releases/releases">Ver todas las versiones en GitHub</a></p>
+      <p class="install-note">En macOS, abrí el DMG y mové Compás Studio a Aplicaciones. En Windows, abrí el instalador. El procesamiento de audio requiere configurar FFmpeg, FFprobe y Demucs.</p>
+    </section>
+  </main>
+</body>
+</html>
